@@ -1,11 +1,15 @@
-import React from 'react'
-import { motion } from 'framer-motion'
+import React, { useEffect, useState } from 'react'
+import { motion, useReducedMotion } from 'framer-motion'
 
 type Props = {}
 
 function BackgroundCircles({ }: Props) {
+    const reducedMotion = useReducedMotion()
+    const [mounted, setMounted] = useState(false)
+    useEffect(() => setMounted(true), [])
+    if (!mounted || reducedMotion) return null
     return (
-        <motion.div className='relative flex justify-center items-center' initial={{
+        <motion.div aria-hidden="true" className='pointer-events-none absolute inset-0 flex justify-center items-center' initial={{
             opacity: 0,
         }} animate={{
             scale: [1, 2, 2, 3, 1],

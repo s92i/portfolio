@@ -23,6 +23,9 @@ export interface PageInfo extends SanityBody {
     name: string
     phoneNumber: string
     profilePic: Image
+    seoDescription?: string
+    socialImage?: Image
+    siteUrl?: string
 }
 
 export interface Technology extends SanityBody {
@@ -43,8 +46,8 @@ export interface Experience extends SanityBody {
     _type: 'experience'
     company: string
     companyImage: Image
-    dateStarted: date
-    dateEnded: date
+    dateStarted: string
+    dateEnded: string
     isCurrentlyWorkingHere: boolean
     jobTitle: string
     points: string[]

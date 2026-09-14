@@ -4,6 +4,21 @@ export default {
   type: 'document',
   fields: [
     {
+      name: 'siteUrl', title: 'Public website URL', type: 'url',
+      description: 'Your deployed homepage URL, used for canonical and sharing links.',
+      validation: Rule => Rule.uri({ scheme: ['http', 'https'] }),
+    },
+    {
+      name: 'seoDescription', title: 'Search description', type: 'text',
+      description: 'A short portfolio introduction for search and social previews.',
+      validation: Rule => Rule.max(160),
+    },
+    {
+      name: 'socialImage', title: 'Social preview image', type: 'image',
+      description: 'Use a 1200 × 630 image. The hero image is used when this is empty.',
+      options: { hotspot: true },
+    },
+    {
       name: 'name',
       title: 'Name',
       type: 'string',

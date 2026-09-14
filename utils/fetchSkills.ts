@@ -1,10 +1,6 @@
 import { Skill } from "../typings";
+import { sanityClient } from "../sanity";
 
 export const fetchSkills = async () => {
-    const res = await fetch(`${process.env.NEXT_PUBLIC_BASE_URL}/api/getSkills`)
-
-    const data = await res.json()
-    const skills: Skill[] = data.skills
-
-    return skills
+    return sanityClient.fetch<Skill[]>('*[_type == "skill"]')
 }
